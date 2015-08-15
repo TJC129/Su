@@ -8,7 +8,7 @@ v3	= gcd3.o test.o
 
 default: all
 
-.PHONY: default clean run
+.PHONY: default clean run arm
 
 #run the tests
 all: $(objects)
