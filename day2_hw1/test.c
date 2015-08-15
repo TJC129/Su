@@ -1,3 +1,6 @@
+/*
+	Runs the tests of findGCD, with input range [2, 9999]
+*/
 #include <time.h>
 #include <stdio.h>
 extern int findGCD(int, int);
@@ -14,7 +17,8 @@ int main(int argc, char* argv[])
 				count+=1;
 			}
 		}
-		printf("%s finished %d cases(2~%d), time elapsed: %f\n",argv[0] , count, upper, (double) (clock()-begin)/CLOCKS_PER_SEC);
+		printf("%s finished %d cases(2~%d), time elapsed: %f\n"\
+		,argv[0] , count, upper, (double) (clock()-begin)/CLOCKS_PER_SEC);
 
 		return 0;
 }
