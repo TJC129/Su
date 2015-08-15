@@ -1,0 +1,25 @@
+CC	= gcc
+CFLAGS	= -O0 -g -Wall 
+LDFLAGS = -fno-stack-protector
+
+objects	= gcd1.o test.o
+
+default: ./gcd
+
+.PHONY: default clean
+
+gcd: $(objects)
+	$(CC) $(LDFLAGS) -o $@ $^ 
+
+gcd1.o: gcd1.c
+test.o: test.c
+
+%.o: %.c
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+%.o: %.s
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+clean:
+	rm -f $(objects) gcd
+
