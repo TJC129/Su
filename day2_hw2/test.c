@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 		double time_result;
 		FILE* fp = fopen("lastname.txt", "r");//entries:88799
 		char tempName[16];
-		int count=0;
+		//int count=0;
 		if(fp==NULL)//open fail
 		{
 				printf("error opening file");
@@ -26,8 +26,8 @@ int main(int argc, char* argv[])
 				//count+=1;
 				//if(strlen(tempName)>=13)
 				//printf("%d: %s, length: %zd\n",count, tempName, strlen(tempName));
-				
-				if(feof(fp))
+
+				if(feof(fp))//if the last line of data
 				{
 						fclose(fp);
 						break;
@@ -40,12 +40,10 @@ int main(int argc, char* argv[])
 		}
 		//search the dataset here, and record the running time
 		clock_begin = clock();
-		if(FindName("Aaberg")==1)//last case in DATA
-		{
-				time_result = (double)(clock() - clock_begin) / CLOCKS_PER_SEC;
-				printf("%s found the last case from %d cases, time elapsed:%f \n",\
+		FindName("Aaberg");//last case in DATA
+		time_result = (double)(clock() - clock_begin) / CLOCKS_PER_SEC;
+		printf("%s found the last case from %d cases, time elapsed:%f \n",\
 				 argv[0], DATA_ENTRIES, time_result);
-		}
 		deallocateData();
 		return 0;
 }
